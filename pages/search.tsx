@@ -23,10 +23,10 @@ interface SearchProps {
 
 export default function Search({ pokemon }: SearchProps) {
   const [search, setSearch] = useState("");
-  const [searchedPokemon, setSearchedPokemon] = useState(null);
+  const [searchedPokemon, setSearchedPokemon] = useState();
   console.log(search);
 
-  const fetchPokemon = async (poke) => {
+  const fetchPokemon = async (poke: Pokemon) => {
     const res = await fetch(poke.url);
     const pokemonFound = await res.json();
     setSearchedPokemon(pokemonFound);
@@ -37,14 +37,12 @@ export default function Search({ pokemon }: SearchProps) {
 
     if (poke) {
       fetchPokemon(poke);
-    } else {
-      setSearchedPokemon(null);
     }
   }, [search]);
   return (
     <div className="h-screen">
-      <SearchPokemon pokemon={pokemon} setSearch={setSearch} />
-      <PokemonList searchedPokemon={searchedPokemon} />
+      <SearchPokemon setSearch={setSearch} />
+      <PokemonList searchedPokemon={searchedPokemon && searchedPokemon} />
     </div>
   );
 }

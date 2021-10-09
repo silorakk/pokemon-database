@@ -3,7 +3,7 @@ import Image from "next/image";
 import styles from "./PokemonList.module.css";
 
 interface Props {
-  searchedPokemon: {
+  searchedPokemon?: {
     name: string;
     sprites: {
       other: {
@@ -12,11 +12,12 @@ interface Props {
         };
       };
     };
-    types: {
-      type: {
-        name: string;
-      };
-    }[];
+    types:
+      | {
+          type: {
+            name: string;
+          };
+        }[];
   };
 }
 
