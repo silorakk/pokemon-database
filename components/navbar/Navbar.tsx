@@ -14,7 +14,9 @@ export const NavBar = () => {
           <Link href="/search" passHref>
             <h1 className="hover:text-white">Search Pokemon</h1>
           </Link>
-          <h1 className="hover:text-white">Top Pokemon</h1>
+          <Link href="/liked" passHref>
+            <h1 className="hover:text-white">Liked Pokemon</h1>
+          </Link>
         </div>
         <div className="text-white">
           <h1>Karolis</h1>
