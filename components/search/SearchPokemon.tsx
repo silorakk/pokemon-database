@@ -1,11 +1,18 @@
-import { useRef, useState } from "react";
+import { ReactFragment, useRef, useState } from "react";
 
-export const SearchPokemon = ({ pokemon, setSearch }) => {
-  const inputRef = useRef();
-  const handleSubmit = (e) => {
+interface Props {
+  setSearch: (s: string) => void;
+}
+
+export const SearchPokemon = ({ setSearch }: Props) => {
+  const inputRef = useRef<HTMLInputElement>(null);
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setSearch(inputRef.current?.value.toLowerCase());
-    inputRef.current.value = "";
+    setSearch(inputRef.current?.value.toLowerCase() || "");
+
+    if (inputRef.current && inputRef.current.value) {
+      inputRef.current.value = "";
+    }
   };
 
   return (
