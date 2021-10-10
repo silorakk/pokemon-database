@@ -36,7 +36,7 @@ export const PokemonCard = ({ pokemon }: Props) => {
     }
   };
   return (
-    <div className="mt-12 bg-white rounded-3xl hover:scale-105 transform transition-all fade in p-12">
+    <div className="mt-12 bg-white rounded-3xl  p-12">
       <div className="flex justify-end">
         <HeartIcon
           className="cursor-pointer"

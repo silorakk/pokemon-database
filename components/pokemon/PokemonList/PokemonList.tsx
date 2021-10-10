@@ -5,6 +5,7 @@ import React, { useContext } from "react";
 import HeartIcon from "../../icons/HeartIcon";
 import { LikedContext } from "../../liked/LikedStore";
 import PokemonCard from "../PokemonCard/PokemonCard";
+import Link from "next/link";
 
 interface Props {
   searchedPokemon?: {
@@ -24,13 +25,21 @@ interface Props {
           };
         }[];
   };
+  moreInfo?: boolean;
 }
 
 export const PokemonList = ({ searchedPokemon }: Props) => {
   return (
-    <div className="flex justify-center">
+    <div className="flex justify-center flex-col">
       {searchedPokemon ? (
-        <PokemonCard pokemon={searchedPokemon} />
+        <>
+          <PokemonCard pokemon={searchedPokemon} />
+          <Link href={`/pokemon/${searchedPokemon.id}`} passHref>
+            <button className="bg-black rounded-3xl mt-2 p-4 uppercase text-gray-300 border-red-500">
+              More Details
+            </button>
+          </Link>
+        </>
       ) : (
         <div className="flex h-screen mt-64">
           <h1 className="uppercase text-3xl text-red-600">
