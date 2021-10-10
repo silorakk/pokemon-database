@@ -3,6 +3,7 @@ import HeartIcon from "../../icons/HeartIcon";
 import { LikedContext } from "../../liked/LikedStore";
 import styles from "./PokemonCard.module.css";
 import Image from "next/image";
+import Link from "next/link";
 
 interface Props {
   pokemon: {
@@ -22,9 +23,10 @@ interface Props {
           };
         }[];
   };
+  noDetails?: boolean;
 }
 
-export const PokemonCard = ({ pokemon }: Props) => {
+export const PokemonCard = ({ pokemon, noDetails = false }: Props) => {
   const { likePokemon, dislikePokemon, likedPokemonIds } =
     useContext(LikedContext);
 
@@ -35,6 +37,8 @@ export const PokemonCard = ({ pokemon }: Props) => {
       likePokemon(id);
     }
   };
+
+  console.log(noDetails);
   return (
     <div className="mt-12 bg-white rounded-3xl  p-12">
       <div className="flex justify-end">
@@ -150,6 +154,15 @@ export const PokemonCard = ({ pokemon }: Props) => {
             )}
           </div>
         ))}
+      {!noDetails && (
+        <div className="flex justify-center">
+          <Link href={`/pokemon/${pokemon.id}`} passHref>
+            <button className="bg-black rounded-3xl mt-2 p-4 uppercase text-gray-300 border-red-500">
+              More Details
+            </button>
+          </Link>
+        </div>
+      )}
     </div>
   );
 };

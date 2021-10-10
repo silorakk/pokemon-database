@@ -47,7 +47,7 @@ export default function Pokemon({ pokemon }: Props) {
         {pokemon && (
           <>
             <div className="flex space-x-12">
-              <PokemonCard pokemon={pokemon} />
+              <PokemonCard pokemon={pokemon} noDetails={true} />
               <div className="mt-12 bg-white rounded-3xl p-12 w-full">
                 <h1 className="uppercase font-bold text-xl pb-4">Stats</h1>
                 <div>
@@ -57,7 +57,7 @@ export default function Pokemon({ pokemon }: Props) {
                       <div className="relative pt-1">
                         <div className="overflow-hidden h-4 mb-4 text-xs flex rounded bg-blue-500">
                           <div
-                            style={{ width: `${stat.base_stat}%` }}
+                            style={{ width: `${stat.base_stat / 2}%` }}
                             className="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-pink-500"
                           >
                             {stat.base_stat}

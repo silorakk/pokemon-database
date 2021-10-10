@@ -32,14 +32,7 @@ export const PokemonList = ({ searchedPokemon }: Props) => {
   return (
     <div className="flex justify-center flex-col">
       {searchedPokemon ? (
-        <>
-          <PokemonCard pokemon={searchedPokemon} />
-          <Link href={`/pokemon/${searchedPokemon.id}`} passHref>
-            <button className="bg-black rounded-3xl mt-2 p-4 uppercase text-gray-300 border-red-500">
-              More Details
-            </button>
-          </Link>
-        </>
+        <PokemonCard pokemon={searchedPokemon} />
       ) : (
         <div className="flex h-screen mt-64">
           <h1 className="uppercase text-3xl text-red-600">
