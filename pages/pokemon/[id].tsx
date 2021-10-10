@@ -2,6 +2,7 @@ import { useRouter } from "next/router";
 import React, { useContext, useEffect, useState } from "react";
 import Image from "next/image";
 import PokemonCard from "../../components/pokemon/PokemonCard/PokemonCard";
+import { GetServerSideProps } from "next";
 
 interface Props {
   pokemon: {
@@ -24,7 +25,7 @@ interface Props {
   };
 }
 
-export async function getServerSideProps(ctx) {
+export const getServerSideProps: GetServerSideProps = async (ctx) => {
   const { id } = ctx.query;
 
   const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
@@ -35,7 +36,7 @@ export async function getServerSideProps(ctx) {
       pokemon: data,
     },
   };
-}
+};
 
 export default function Pokemon({ pokemon }: Props) {
   console.log(pokemon);
