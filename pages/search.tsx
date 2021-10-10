@@ -40,9 +40,11 @@ export default function Search({ pokemon }: SearchProps) {
     }
   }, [search]);
   return (
-    <div className="h-screen">
-      <SearchPokemon setSearch={setSearch} />
-      <PokemonList searchedPokemon={searchedPokemon && searchedPokemon} />
-    </div>
+    <main className="flex flex-col items-center justify-center min-h-screen py-2">
+      <div className="h-screen">
+        <SearchPokemon setSearch={setSearch} />
+        <PokemonList searchedPokemon={searchedPokemon && searchedPokemon} />
+      </div>
+    </main>
   );
 }

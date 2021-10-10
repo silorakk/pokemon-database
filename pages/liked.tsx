@@ -37,13 +37,15 @@ export default function Liked() {
   }, [likedPokemonIds.length]);
 
   return (
-    <div className="h-screen">
-      <h1 className="text-center font-bold text-3xl">Your Liked Pokemon</h1>
-      <div className="grid grid-cols-2 gap-12">
-        {likedPokemons?.map((pokemon) => (
-          <PokemonCard pokemon={pokemon} key={pokemon.id} />
-        ))}
+    <main className="flex flex-col items-center justify-center min-h-screen py-2">
+      <div className="h-screen">
+        <h1 className="text-center font-bold text-3xl">Your Liked Pokemon</h1>
+        <div className="grid grid-cols-2 gap-12">
+          {likedPokemons?.map((pokemon) => (
+            <PokemonCard pokemon={pokemon} key={pokemon.id} />
+          ))}
+        </div>
       </div>
-    </div>
+    </main>
   );
 }

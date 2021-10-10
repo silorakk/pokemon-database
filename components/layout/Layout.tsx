@@ -1,4 +1,5 @@
 import React from "react";
+import Footer from "../footer/Footer";
 import NavBar from "../navbar/Navbar";
 
 interface LayoutProps {
@@ -10,7 +11,7 @@ export default function Layout({ children }: LayoutProps) {
     <>
       <NavBar />
       <main className="py-32 px-16 bg-gray-100">{children}</main>
-      {/* Footer */}
+      <Footer />
     </>
   );
 }

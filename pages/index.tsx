@@ -4,7 +4,7 @@ export default function Home() {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen py-2">
       <Head>
-        <title>Create Next App</title>
+        <title>Pokemon Database</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
@@ -23,11 +23,6 @@ export default function Home() {
           <h3 className="text-2xl font-bold">Pikachu &rarr;</h3>
         </div>
       </main>
-
-      <footer className="flex items-center justify-center w-full h-24 border-t flex-col">
-        <h1>Footer</h1>
-        <h2>Work in Progress</h2>
-      </footer>
     </div>
   );
 }
